@@ -52,6 +52,7 @@ names(fullset_sub) <- sub("^t","",names(fullset_sub))
 names(fullset_sub) <- sub("acc","",names(fullset_sub))
                                 
 ##finally the tidy data set with the average of each variable for each activity and each subject is created
+library(dplyr)
 fullset_grouped <- group_by(fullset_sub, subject, activity)
 fullset_averaged <- summarize_all(fullset_grouped, mean)
 View(fullset_averaged)
